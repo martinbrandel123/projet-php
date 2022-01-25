@@ -1,0 +1,15 @@
+Les tableaux sont des ensembles ordonnés de données qui constituent un type de structure de données fondamental en informatique.
+En PHP, nous appelons cette structure de données des tableaux ordonnés .
+L'emplacement d'un élément dans un tableau est appelé son index .
+Les éléments d'un tableau ordonné sont classés par ordre numérique croissant en commençant par l'indice zéro.
+Nous pouvons construire des tableaux ordonnés avec une fonction PHP intégrée : array().
+Nous pouvons construire des tableaux ordonnés avec une syntaxe de tableau courte, par exemple [1,2,3].
+Nous pouvons imprimer des tableaux à l'aide de la print_r()fonction intégrée ou en les convertissant en chaînes à l'aide de la implode()fonction.
+Nous utilisons des crochets ( []) pour accéder aux éléments d'un tableau par leur index.
+Nous pouvons ajouter des éléments à la fin d'un tableau en ajoutant des crochets ( []) à un nom de variable de tableau et en affectant la valeur avec l'opérateur d'affectation ( =).
+Nous pouvons changer les éléments d'un tableau en utilisant l'indexation de tableau et l'opérateur d'affectation.
+La array_pop()fonction supprime le dernier élément d'un tableau.
+La array_push()fonction ajoute des éléments à la fin d'un tableau.
+La array_shift()fonction supprime le premier élément d'un tableau.
+La array_unshift()fonction ajoute des éléments au début du tableau.
+Nous pouvons utiliser des crochets chaînés ( []) pour accéder et modifier des éléments dans un tableau imbriqué.
