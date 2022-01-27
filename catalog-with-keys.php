@@ -17,6 +17,7 @@ $nikeAirMax270 = [
 echo '<pre>';
 print_r($nikeAirMax270);
 echo '</pre>';
-print_r(formatPrice($nikeAirMax270["price"]));
+
+formatPrice($nikeAirMax270["price"], $nikeAirMax270["discount"]);
 
 ?>

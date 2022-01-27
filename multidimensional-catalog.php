@@ -17,20 +17,15 @@ $products = [
     ],
     "nikefeu270" => [
         "name" => "nikefeu270",
-        "price" => 666,
+        "price" => 1000,
         "weight" => 62,
         "discount" => 10,
         "picture_url" => "nikefeu270.png",
     ],
 ];
 
-foreach($products as $key => $shoes) {        
-      foreach($shoes as $key => $shoe) {
-          if ($key === "price") {
-              $shoe = formatPrice($shoe);
-          }
-        echo $shoe."<br>";
-      }
+foreach($products as $key => $shoes) { 
+    formatPrice($shoes["price"], $shoes["discount"]);
       echo "<hr>";
   }
 ?>
