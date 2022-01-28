@@ -1,0 +1,16 @@
+.shoe_container {
+    position: absolute;
+    top: 200px;
+    left: 45%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.shoe_card {
+    border: 1px solid black;
+    margin: 0 50px;
+    height: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
