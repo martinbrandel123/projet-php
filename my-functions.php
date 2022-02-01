@@ -23,3 +23,16 @@ function displayDiscountedPrice($price_euro, $discount = 0) {
     $discountedPrice = $price_euro * ($discount / 100);
     return $discountedPrice ."€ de remise"; 
 }
+
+
+
+//////
+Validation 
+//////
+
+
+
+
+
+
+
