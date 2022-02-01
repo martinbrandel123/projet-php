@@ -1,0 +1,31 @@
+
+.basket div{
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid grey;
+    height: 25px;
+    width: 200px;
+}
+
+.middle_line {
+    color: red;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: line-through;
+}
+
+.basket_wrapper {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+.basket {
+    margin: 25px;
+}
+.basket_product {
+    background-color: black;
+    font-size: 20px;
+    color: white;
+}
