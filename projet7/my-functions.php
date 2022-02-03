@@ -1,21 +1,21 @@
 <?php
 
 
-
-function priceExcludingVAT($price_euro, $quantity = 1) {
-    $TVA = 20;  
-    $HT = ((100*$price_euro) / (100 + $TVA)) * $quantity;
-    return "HT : " .$HT ." €";
+function formatPrice (int $priceCents) :int {
+    $priceEuro = $priceCents / 100;
+    return $priceEuro;
 }
 
-
-
-function discountedPrice($price_euro, $discount = 0, $quantity = 1) {
-    $discountedPrice = ($price_euro * ($discount / 100)) * $quantity;
-    return $discountedPrice; 
+function priceExcludingVAT(int $TTCCents) :int {
+    $TTCEuro = formatPrice($TTCCents);
+    $HTEuro = (100 * $TTCEuro) / (120);
+    return $HTEuro;
 }
-function endPrice ($price_euro, $discount, $quantity = 1) {
-    return ($price_euro * $quantity) - discountedPrice($price_euro, $discount, $quantity);
+
+function discountedPrice (int $priceCents, int $discount) :int {
+    $priceEuro = formatPrice($priceCents);
+    $discountPrice = $priceEuro - ($priceEuro * ($discount / 100));
+    return $discountPrice; 
 }
 
 
