@@ -33,7 +33,7 @@ var_dump($products["shoe_1"]["name"]);
             <li class="list-group-item">Prix avec reduction : <?= discountedPrice ($products["shoe_1"]["price"], $products["shoe_1"]["discount"]) ?> €</li>
         </ul>
         <div class="card-body">
-            <input type="number" name="shoe_quantity" min="0" max="10">
+            <input type="number" name="shoe_1_quantity" min="1" max="10">
             <button type="submit">Voir Mon Pannier</button>
         </div>
         </div>
