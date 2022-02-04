@@ -2,6 +2,7 @@
 
 $products = array("iPhone", "iPad", "iMac");
 $productsLastIndex = count($products) - 1;
+include 'my-function.php';
 
 // Trier le tableau par ordre alphabétique croissant
 //sort($products);

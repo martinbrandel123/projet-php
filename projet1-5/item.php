@@ -8,12 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-
 <?php
     include 'header.php';
     $nom = "martin";
     $prix = " 3500€";
-    $image = "mamp_logo.png";
+    $image = "image/shoe_1.PNG";
     echo "$nom";
     echo "$prix";
     echo "<img src='$image' alt=''>";
