@@ -10,12 +10,13 @@
 <body>
 <?php 
 
-include 'products.php';
+include 'database.php';
 include 'my-functions.php';
 
 $quantity = Null; 
 $products_key = Null;
-dump($_POST);
+
+dump($_POST["shoe_1_quantity"]);
 
     if(isset($_POST["shoe_1_quantity"]) && !empty($_POST["shoe_1_quantity"]) && is_numeric($_POST["shoe_1_quantity"])){
         $quantity = (int) $_POST["shoe_1_quantity"];
@@ -26,6 +27,9 @@ dump($_POST);
         echo "Erreur : il faut seulement des chiffres";
         dump($_POST["getGet"]);
     }
+
+
+
 
 
 
@@ -74,6 +78,12 @@ if($quantity !== Null){
         <td><input type="submit"></td>
       </form>
       <td>Total TTC :</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <td style="text-decoration: underline;" colspan="2"></td>
+      <td></td>
+      <td>Prix & Livraison :</td>
       <td>@twitter</td>
     </tr>
   </tbody>

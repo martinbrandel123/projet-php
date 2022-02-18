@@ -1,5 +1,5 @@
 <?php
-
+include 'database.php';
 
 function formatPrice (int $priceCents) :int {
     $priceEuro = $priceCents / 100;
@@ -12,15 +12,17 @@ function priceExcludingVAT(int $TTCCents, int $quantity = 1) :int {
     return $HTEuro;
 }
 
-function discountedPrice (int $priceCents, int $discount, int $quantity = 1) :int {
+function discountedPrice (int $priceCents, int $discount = 0, int $quantity = 1) :int {
     $priceEuro = formatPrice($priceCents);
     $discountPrice = ($priceEuro - ($priceEuro * ($discount / 100))) * $quantity;
     return $discountPrice; 
 }
 
-
-
-
+function getQueryData ($sqlQuery, $db) {
+    $productsStatement = $db->prepare($sqlQuery);
+    $productsStatement->execute();
+    return $productsStatement->fetchAll();
+}
 
 function dump($elem) {
     echo "<pre>";

@@ -1,5 +1,7 @@
 
 <?php
+
+include 'database.php';
 var_dump($_POST);
 echo "<br>";
 

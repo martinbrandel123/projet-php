@@ -1,7 +1,7 @@
 <?php
-
-include 'products.php';
+include 'database.php';
 include 'my-functions.php';
+$products = getQueryData($sqlQueryProducts, $db);
 
 ?>
 
@@ -17,23 +17,26 @@ include 'my-functions.php';
     <title>Document</title>
 </head>
 <body>
-    <form action="cart.php" method="post">
-        <div class="card" style="width: 18rem;">
-        <img src="image/shoe_1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><?= $products["shoe_1"]["name"] ?></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Prix TTC :<?= formatPrice ($products["shoe_1"]["price"])?> €</li>
-            <li class="list-group-item">Prix HT :<?= priceExcludingVAT($products["shoe_1"]["price"]) ?> €</li>
-            <li class="list-group-item">Prix avec reduction : <?= discountedPrice ($products["shoe_1"]["price"], $products["shoe_1"]["discount"]) ?> €</li>
-        </ul>
-        <div class="card-body">
-            <input type="number" name="shoe_1_quantity" min="1" max="10">
-            <input type="number" name="shoe_2_quantity" min="1" max="10">
-            <button type="submit">Voir Mon Pannier</button>
-        </div>
-        </div>
+    <form action="insert.php" method="POST" style="justify-content: center; display:flex; width: 80%; flex-wrap: wrap; margin: 50px auto;">
+        <?php foreach($products as $product) {?>
+            <div class="cards"  style="width: 300px; margin: 20px;">
+                <div class="card" style="width: 18rem;">
+                <img src='<?=$product["image"]?>' class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $product["name"] ?></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Prix TTC : <?= formatPrice ($product["price"])?> €</li>
+                    <li class="list-group-item">Prix HT : <?= priceExcludingVAT($product["price"]) ?> €</li>
+                    <li class="list-group-item">Prix avec reduction : <?= discountedPrice ($product["price"], $product["discount"]) ?> € =><?=$product["discount"]?> % </li>
+                </ul>
+                <div class="card-body">
+                    <input type="number" name="quantity[]" min="1" max="10">
+                    <input type="submit" name="ajouter" value="Mon panier">
+                </div>
+                </div>
+            </div>
+         <?php }  ?>
     </form>
 </body>
 </html>

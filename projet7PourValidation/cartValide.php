@@ -25,6 +25,7 @@ if(isset($_POST["shoe_1_quantity"]) && !empty($_POST["shoe_1_quantity"]) && is_n
     echo "Erreur : il faut seulement des chiffres";
 }
 
+dump($quantity);
 
 if($quantity !== Null){
 ?>
@@ -37,7 +38,7 @@ if($quantity !== Null){
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Prix unitaire TTC : <?= formatPrice($products[$products_key]["price"]) ?> €</li>
             <li class="list-group-item">Prix HT : <?= priceExcludingVAT($products[$products_key]["price"], $quantity) ?> €</li>
-            <li class="list-group-item">Prix avec reduction :<?= discountedPrice ($products[$products_key]["price"], $products[$products_key]["discount"], $quantity) ?>  €</li>
+            <li class="list-group-item">Prix avec reduction TTC:<?= discountedPrice ($products[$products_key]["price"], $products[$products_key]["discount"], $quantity) ?>  €</li>
         </ul>
     </div>
 
