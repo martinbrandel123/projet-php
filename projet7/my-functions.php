@@ -21,7 +21,7 @@ function discountedPrice (int $priceCents, int $discount = 0, int $quantity = 1)
 function getQueryData ($sqlQuery, $db) {
     $productsStatement = $db->prepare($sqlQuery);
     $productsStatement->execute();
-    return $productsStatement->fetchAll();
+    return $productsStatement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function dump($elem) {

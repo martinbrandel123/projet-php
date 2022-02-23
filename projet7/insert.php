@@ -18,17 +18,14 @@ $products = getQueryData($sqlQueryProducts, $db);
 
 for($i=0;$i<count($_POST['quantity']);$i++){
     if(isset($_POST['ajouter'])){
-        $sqlDelete = "DELETE * FROM tabletest";
-        $sql_delete = $db->prepare($sqlDelete);
-        $quantity = $_POST['quantity'];
-        dump($_POST['quantity'][$i]);
-        $sqlInsert = "INSERT INTO tabletest(quantity) VALUES (:quantity)";
+      $sqlInsert = "INSERT INTO order_product(quantity, product_id) VALUES (:quantity, :product_id)";
         $sql_insert = $db->prepare($sqlInsert);
         $sql_insert->execute([
-            'quantity' => $quantity[$i]
-          //  'product_id' => 
+            'quantity' => $quantity[$i],
+            'product_id' => 
         ]);
-      };
+    }
+  };
 }
 
 

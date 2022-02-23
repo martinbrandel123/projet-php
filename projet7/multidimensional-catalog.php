@@ -5,7 +5,6 @@ $products = getQueryData($sqlQueryProducts, $db);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@ $products = getQueryData($sqlQueryProducts, $db);
     <title>Document</title>
 </head>
 <body>
-    <form action="insert.php" method="POST" style="justify-content: center; display:flex; width: 80%; flex-wrap: wrap; margin: 50px auto;">
+    <form action="cart.php" method="POST" style="justify-content: center; display:flex; width: 80%; flex-wrap: wrap; margin: 50px auto;">
         <?php foreach($products as $product) {?>
             <div class="cards"  style="width: 300px; margin: 20px;">
                 <div class="card" style="width: 18rem;">
@@ -36,7 +35,7 @@ $products = getQueryData($sqlQueryProducts, $db);
                 </div>
                 </div>
             </div>
-         <?php }  ?>
+         <?php } ?>
     </form>
 </body>
 </html>
