@@ -1,51 +1,31 @@
+
 <?php
+ 
 
-class Encounter
+class User
 {
-    public const RESULT_WINNER = 1;
-    public const RESULT_LOSER = -1;
-    public const RESULT_DRAW = 0;
-    public const RESULT_POSSIBILITIES = [self::RESULT_WINNER, self::RESULT_LOSER, self::RESULT_DRAW];
-
-    public static function probabilityAgainst(Player $playerOne, Player $playerTwo): float
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_INACTIVE = 'inactive';
+ 
+    public static $nombreUtilisateursInitialisés = 0;
+ 
+    public function __construct(public string $username, public string $status = self::STATUS_ACTIVE)
     {
-        return 1/(1+(10 ** (($playerTwo->level - $playerOne->level)/400)));
-    }
-
-    public static function setNewLevel(Player $playerOne, Player $playerTwo, int $playerOneResult): void
-    {
-        if (!in_array($playerOneResult, self::RESULT_POSSIBILITIES)) {
-            trigger_error(sprintf('Invalid result. Expected %s',implode(' or ', self::RESULT_POSSIBILITIES)));
-        }
-
-        $playerOne->level += round(32 * ($playerOneResult - self::probabilityAgainst($playerOne, $playerTwo)));
     }
 }
-
-class Player
+ 
+class Admin extends User
 {
-    public int $level;
+    public static $nombreAdminInitialisés = 0;
+ 
+    // mise à jour des valeurs des propriétés statiques de la classe courante avec `self`, et de la classe parente avec `parent`
+    public static function nouvelleInitialisation()
+    {
+        self::$nombreAdminInitialisés++; // classe Admin
+        parent::$nombreUtilisateursInitialisés++; // classe User
+    }
 }
-
-$greg = new Player;
-$jade = new Player;
-
-$greg->level = 400;
-$jade->level = 800;
-
-echo sprintf(
-        'Greg à %.2f%% chance de gagner face a Jade',
-        Encounter::probabilityAgainst($greg, $jade)*100
-    ).PHP_EOL;
-
-// Imaginons que greg l'emporte tout de même.
-Encounter::setNewLevel($greg, $jade, Encounter::RESULT_WINNER);
-Encounter::setNewLevel($jade, $greg, Encounter::RESULT_LOSER);
-
-echo sprintf(
-    'les niveaux des joueurs ont évolués vers %s pour Greg et %s pour Jade',
-    $greg->level,
-    $jade->level
-);
-
-exit(0);
+ 
+Admin::nouvelleInitialisation();
+var_dump(Admin::$nombreAdminInitialisés, Admin::$nombreUtilisateursInitialisés, User::$nombreUtilisateursInitialisés);
+var_dump(User::$nombreAdminInitialisés); // ceci ne marche pas.
