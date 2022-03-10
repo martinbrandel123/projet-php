@@ -16,13 +16,13 @@ $products = getQueryData($sqlQueryProducts, $db);
     <title>Document</title>
 </head>
 <body>
-    <form action="cart.php" method="POST" style="justify-content: center; display:flex; width: 80%; flex-wrap: wrap; margin: 50px auto;">
+    <form action="cookie.php" method="POST" style="justify-content: center; display:flex; width: 80%; flex-wrap: wrap; margin: 50px auto;">
         <?php foreach($products as $product) {?>
             <div class="cards"  style="width: 300px; margin: 20px;">
                 <div class="card" style="width: 18rem;">
                 <img src='<?=$product["image"]?>' class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $product["name"] ?></h5>
+                    <h5 class="card-title"><?= $product["name"]?></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Prix TTC : <?= formatPrice ($product["price"])?> €</li>
